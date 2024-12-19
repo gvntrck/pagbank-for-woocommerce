@@ -272,7 +272,7 @@ class ApiHelpers {
 								'line_2' => __( 'PagBank', 'pagbank-for-woocommerce' ),
 							),
 							'holder'            => array(
-								'name'    => $order->get_formatted_billing_full_name(),
+								'name'    => !empty($order->get_billing_company()) ? $order->get_billing_company() : $order->get_formatted_billing_full_name(),
 								'tax_id'  => self::get_order_tax_id_api_data( $order ),
 								'email'   => $order->get_billing_email(),
 								'address' => self::get_order_billing_address_api_data( $order ),
